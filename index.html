@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>LSSC 콘텐츠본부 팀빌딩</title>
 <meta name="description" content="스크롤을 멈추게 하라, 승부는 첫 3초. LSSC 콘텐츠 2본부 · 바이럴마케팅팀 팀빌딩 채용 안내.">
-<meta property="og:title" content="LSSC 콘텐츠 2본부 · 바이럴마케팅팀 팀빌딩">
+<meta property="og:title" content="LSSC 콘텐츠 2본부 · 바이럴마케팅팀 콘텐츠 마케터 팀빌딩">
 <meta property="og:description" content="스크롤을 멈추게 하라, 승부는 첫 3초. 소비자의 3초를 점유하는 비즈니스 임팩트를 LSSC에서 경험하세요.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://lssc-contents2.vercel.app/assets/og-image-v2.jpg">
+<meta property="og:image" content="https://lssc-contents2.vercel.app/assets/og-image-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LSSC 콘텐츠 2본부 · 바이럴마케팅팀 팀빌딩">
+<meta name="twitter:title" content="LSSC 콘텐츠 2본부 · 바이럴마케팅팀 콘텐츠 마케터 팀빌딩">
 <meta name="twitter:description" content="스크롤을 멈추게 하라, 승부는 첫 3초. 소비자의 3초를 점유하는 비즈니스 임팩트를 LSSC에서 경험하세요.">
-<meta name="twitter:image" content="https://lssc-contents2.vercel.app/assets/og-image-v2.jpg">
+<meta name="twitter:image" content="https://lssc-contents2.vercel.app/assets/og-image-v3.jpg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -59,7 +59,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 .hero-team{font-size:clamp(22px,3.4vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.3}
 .hero-team .plus{color:var(--red);margin-inline:.15em}
 .hero-team .tb{display:inline-block;background:var(--ink);color:var(--yellow);border-radius:999px;padding:.08em .55em .12em;margin-left:.2em}
-.hero h1{font-weight:900;font-size:clamp(76px,16vw,196px);line-height:.98;letter-spacing:-.065em;margin-top:28px}
+.tc{display:flex;align-items:center;gap:14px;margin-top:32px;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;max-width:720px}
+.tc .track{flex:1;height:4px;border-radius:999px;background:rgba(18,18,18,.12);overflow:hidden}
+.tc .track i{display:block;height:100%;width:0;border-radius:999px;background:var(--ink);animation:tc 3s linear infinite}
+@keyframes tc{to{width:100%}}
+.hero h1{font-weight:900;font-size:clamp(76px,16vw,196px);line-height:.98;letter-spacing:-.065em;margin-top:24px}
 .hero h1 em{font-style:normal;color:var(--red)}
 .hero-sub{font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:-.03em;margin-top:32px}
 .hero-lead{font-size:17px;line-height:1.75;color:#3a3826;max-width:34em;margin-top:14px}
@@ -207,7 +211,7 @@ footer .fine{width:100%;font-size:12px;color:#7a7a74;margin-top:8px}
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-inner">
     <div class="splash-num" id="splashNum">3</div>
-    <div class="splash-cap">LSSC 콘텐츠 2본부 + 바이럴마케팅팀 팀빌딩</div>
+    <div class="splash-cap">LSSC 콘텐츠 2본부 + 바이럴마케팅팀 콘텐츠 마케터 팀빌딩</div>
   </div>
   <button class="splash-skip" id="splashSkip" type="button">건너뛰기</button>
 </div>
@@ -227,7 +231,8 @@ footer .fine{width:100%;font-size:12px;color:#7a7a74;margin-top:8px}
 <!-- HERO -->
 <section class="hero">
   <div class="inner">
-    <p class="hero-team">콘텐츠 2본부<span class="plus">+</span>바이럴마케팅팀 <span class="tb">팀빌딩</span></p>
+    <p class="hero-team">콘텐츠 2본부<span class="plus">+</span>바이럴마케팅팀 콘텐츠 마케터 <span class="tb">팀빌딩</span></p>
+    <div class="tc" aria-hidden="true"><span>0:00</span><span class="track"><i></i></span><span>0:03</span></div>
     <h1>멈춰.<br><em>3초</em>면<br>충분해.</h1>
     <p class="hero-sub">스크롤을 멈추게 하라, 승부는 첫 3초.</p>
     <p class="hero-lead">LSSC 콘텐츠본부는 첫 3초의 훅으로 고객을 멈춰 세우고, 그 3초를 매출로 바꾸는 팀입니다. 지금 <strong>콘텐츠 2본부</strong>와 <strong>바이럴마케팅팀</strong>에서, LSSC의 <strong>Phase2</strong>를 만들어 갈 동료를 모십니다.</p>

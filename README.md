@@ -14,4 +14,4 @@
 3. 커밋·푸시하면 자동 재배포됩니다.
 
 ## 링크 미리보기 이미지
-`assets/og-image-v2.jpg` (원본: `assets/og-source.html`)
+`assets/og-image-v3.jpg` (원본: `assets/og-source.html`)

@@ -15,137 +15,144 @@
 <meta name="twitter:title" content="LSSC 콘텐츠 2본부 · 바이럴마케팅팀 팀빌딩">
 <meta name="twitter:description" content="스크롤을 멈추게 하라, 승부는 첫 3초. 소비자의 3초를 점유하는 비즈니스 임팩트를 LSSC에서 경험하세요.">
 <meta name="twitter:image" content="https://lssc-contents2.vercel.app/assets/og-image-v2.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-/* Layout: "첫 3초" — 노랑 바탕 + 검정 굵은 선, 영상 타임코드(0:00→0:03)를 페이지 구조로 사용 */
 :root{
-  --y:#ffe14d;      /* 바탕 노랑 */
-  --k:#111111;      /* 잉크 검정 */
-  --r:#ff4d2e;      /* 포인트 레드 */
-  --w:#fffdf2;      /* 반전 영역 글자 */
-  --mut:#3d3a2a;    /* 보조 글자 */
-  --display:'Black Han Sans','Noto Sans KR',sans-serif;
-  --sans:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Consolas,monospace;
+  --yellow:#ffe14d;
+  --ink:#121212;
+  --sub:#5c5c58;
+  --mute:#9a9a94;
+  --line:#e9e8e3;
+  --soft:#f6f5f1;
+  --white:#ffffff;
+  --red:#ff4d2e;
+  --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
   color-scheme:light;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--y);color:var(--k);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--white);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-h1,h2,h3{text-wrap:balance}
-.inner{max-width:1120px;margin:0 auto;padding-inline:20px}
-a:focus-visible,button:focus-visible{outline:3px solid var(--r);outline-offset:3px}
+.inner{max-width:1080px;margin:0 auto;padding-inline:24px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
-/* splash: 3·2·1 카운트다운 */
-.splash{position:fixed;inset:0;z-index:100;background:var(--k);color:var(--y);display:grid;place-items:center;transition:opacity .5s ease,visibility .5s ease;cursor:pointer}
+/* splash */
+.splash{position:fixed;inset:0;z-index:100;background:var(--yellow);display:flex;align-items:center;justify-content:center;transition:opacity .45s ease,visibility .45s ease;cursor:pointer}
 .splash.hide{opacity:0;visibility:hidden}
 .splash-inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding-inline:20px}
-.splash-num{text-align:center;font-family:var(--display);font-size:clamp(140px,30vw,280px);line-height:1}
-.splash-cap{font:500 13px var(--mono);letter-spacing:.14em;text-align:center;margin-top:16px;color:var(--w);opacity:.7}
-.splash-skip{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));right:24px;background:transparent;border:1px solid rgba(255,253,242,.35);color:var(--w);font:600 13px var(--sans);padding:8px 16px;border-radius:999px;cursor:pointer}
+.splash-num{font-weight:900;font-size:clamp(150px,32vw,300px);line-height:1;letter-spacing:-.06em}
+.splash-cap{font-size:15px;font-weight:600;margin-top:14px;letter-spacing:-.01em}
+.splash-skip{position:absolute;bottom:calc(24px + env(safe-area-inset-bottom,0px));right:24px;background:transparent;border:0;color:var(--ink);font:600 14px var(--font);cursor:pointer;opacity:.6}
 
-/* topbar */
-.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--y);border-bottom:3px solid var(--k)}
-.topbar .inner{display:flex;justify-content:space-between;align-items:center;padding-block:14px}
-.logo{font-family:var(--display);font-size:24px;letter-spacing:.02em}
-.logo sup{font-size:11px}
-.back{font-weight:700;font-size:14px}
-.back:hover{color:var(--r)}
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,225,77,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
+.top .inner{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-weight:900;font-size:21px;letter-spacing:-.03em}
+.top nav{display:flex;gap:22px;font-size:14px;font-weight:600}
+.top nav a{opacity:.7}
+.top nav a:hover{opacity:1}
 
 /* hero */
-.hero{padding-block:40px 40px}
-.team-band{background:var(--k);color:var(--y);padding:20px 24px 24px;border-left:12px solid var(--r)}
-.team-band .tb{display:inline-block;font:500 clamp(12px,1.4vw,14px) var(--mono);letter-spacing:.14em;color:var(--w);border:1.5px solid var(--w);padding:5px 10px}
-.tb-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:14px;font-family:var(--display);font-size:clamp(30px,5.6vw,64px);line-height:1.15}
-.tb-line .x{color:var(--r)}
-.tb-line mark{background:var(--y);color:var(--k);padding:2px 14px}
-.tc{font:500 14px var(--mono);display:flex;align-items:center;gap:12px;margin-top:28px}
-.tc .track{flex:1;height:6px;background:rgba(17,17,17,.15);border-radius:3px;overflow:hidden}
-.tc .track i{display:block;height:100%;width:0;background:var(--k);animation:tc 3s linear infinite}
-@keyframes tc{to{width:100%}}
-.big{font-family:var(--display);font-size:clamp(84px,19vw,230px);line-height:.92;letter-spacing:-.02em;margin-top:24px}
-.big em{font-style:normal;color:var(--r)}
-.sub{font-family:var(--display);font-size:clamp(24px,3.6vw,40px);margin-top:20px;line-height:1.3}
-.lead{font-size:17px;line-height:1.8;max-width:58ch;margin-top:16px;font-weight:500}
-.lead b{font-weight:900;background:linear-gradient(transparent 60%,rgba(255,77,46,.35) 60%)}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{font-weight:900;font-size:16px;padding:16px 22px;border:3px solid var(--k)}
-.btn-k{background:var(--k);color:var(--y)}
-.btn-k:hover{background:var(--r);color:var(--k);border-color:var(--r)}
-.btn-o:hover{background:var(--k);color:var(--y)}
-.count{display:grid;grid-template-columns:repeat(3,1fr);border-block:3px solid var(--k);margin-top:48px}
-.count div{padding:22px 20px;border-right:3px solid var(--k)}
-.count div:last-child{border-right:0}
-.count b{font-family:var(--display);font-size:56px;line-height:1;display:block}
-.count p{font-size:15px;font-weight:700;margin-top:8px;line-height:1.5}
+.hero{background:var(--yellow);padding-block:56px 88px}
+.hero-team{font-size:clamp(22px,3.4vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.3}
+.hero-team .plus{color:var(--red);margin-inline:.15em}
+.hero-team .tb{display:inline-block;background:var(--ink);color:var(--yellow);border-radius:999px;padding:.08em .55em .12em;margin-left:.2em}
+.hero h1{font-weight:900;font-size:clamp(76px,16vw,196px);line-height:.98;letter-spacing:-.065em;margin-top:28px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero-sub{font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:-.03em;margin-top:32px}
+.hero-lead{font-size:17px;line-height:1.75;color:#3a3826;max-width:34em;margin-top:14px}
+.hero-lead strong{font-weight:800;color:var(--ink)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;padding:16px 26px;border-radius:999px;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-line{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:64px;font-size:clamp(17px,2vw,21px);font-weight:700;letter-spacing:-.03em}
+.flow span{opacity:.35;font-weight:500}
+.flow .sec{font-size:13px;font-weight:700;background:rgba(18,18,18,.08);padding:4px 9px;border-radius:6px;margin-right:6px;opacity:1;letter-spacing:0}
 
-section{padding-block:72px}
-.kicker{font:500 13px var(--mono);letter-spacing:.14em;display:block;margin-bottom:12px}
-h2{font-family:var(--display);font-size:clamp(32px,5vw,58px);line-height:1.15;margin-bottom:32px;font-weight:400}
+/* section base */
+.sec-pad{padding-block:120px}
+.eyebrow{font-size:15px;font-weight:700;color:var(--red);margin-bottom:14px;letter-spacing:-.01em}
+.title{font-size:clamp(32px,4.6vw,52px);font-weight:800;line-height:1.25;letter-spacing:-.045em}
+.title em{font-style:normal;color:var(--red)}
+.desc{font-size:17px;line-height:1.8;color:var(--sub);margin-top:18px;max-width:36em}
 
-/* proof (검정 반전) */
-.proof{background:var(--k);color:var(--w)}
-.proof .kicker{color:var(--y)}
-.proof h2 em{font-style:normal;color:var(--y)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.stats b{font-family:var(--display);font-size:clamp(64px,10vw,120px);color:var(--y);line-height:1;font-weight:400;font-variant-numeric:tabular-nums}
-.stats p{font-size:16px;margin-top:10px;line-height:1.6;opacity:.88}
+/* reels */
+.reels{background:var(--ink);color:var(--white);padding-block:120px 100px;overflow:hidden}
+.reels .eyebrow{color:var(--yellow)}
+.reels .desc{color:#b5b5ae}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:56px;padding-bottom:12px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.reel{flex:0 0 clamp(220px,22vw,250px);scroll-snap-align:start}
+.screen{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:var(--bgc,#222);isolation:isolate}
+.screen video,.screen .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.screen .poster{object-fit:contain;padding:22% 14% 34%;animation:kb 9s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1) translateY(-3%)}}
+.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3) 0%,transparent 20%,transparent 55%,rgba(0,0,0,.65) 100%);z-index:1;pointer-events:none}
+.r-prog{position:absolute;top:10px;left:12px;right:12px;height:2px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden;z-index:2}
+.r-prog i{display:block;height:100%;width:0;background:#fff;animation:rp var(--dur,9s) linear infinite}
+@keyframes rp{to{width:100%}}
+.hook{position:absolute;left:14px;right:14px;top:32%;z-index:2;text-align:center;font-weight:900;font-size:30px;line-height:1.2;letter-spacing:-.05em;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.4);animation:hk var(--dur,9s) steps(1) infinite}
+@keyframes hk{0%{opacity:1}33.3%{opacity:0}100%{opacity:0}}
+.rail{position:absolute;right:10px;bottom:92px;z-index:2;display:grid;gap:18px;justify-items:center}
+.rail svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.r-bottom{position:absolute;left:12px;right:46px;bottom:52px;z-index:2;color:#fff}
+.acct{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.acct i{width:26px;height:26px;border-radius:50%;background:var(--yellow);flex:none}
+.acct small{font-weight:500;opacity:.75;font-size:11px;display:block}
+.r-cta{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;display:flex;justify-content:space-between;background:rgba(255,255,255,.95);color:var(--ink);font-weight:700;font-size:13px;padding:10px 12px;border-radius:10px}
+.reel p.name{margin-top:14px;font-size:15px;font-weight:600;color:#d8d8d2}
 
-/* positions */
-.jobs{border-top:3px solid var(--k)}
-.job{display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center;padding:24px 0;border-bottom:3px solid var(--k)}
-.job .t{font:500 14px var(--mono)}
-.job h3{font-family:var(--display);font-size:clamp(24px,3.2vw,34px);line-height:1.2;font-weight:400}
-.job .team{display:inline-block;font-size:13px;font-weight:900;background:var(--k);color:var(--y);padding:3px 10px;margin-bottom:8px}
-.job .desc{font-size:15px;font-weight:500;margin-top:6px;color:var(--mut)}
-.job .tbd{opacity:.55}
-.job a{background:var(--k);color:var(--y);font-weight:900;padding:16px 22px;white-space:nowrap}
-.job a:hover{background:var(--r);color:var(--k)}
+/* numbers */
+.numbers{background:var(--soft)}
+.num-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px}
+.num{font-weight:900;font-size:clamp(64px,10vw,124px);letter-spacing:-.06em;line-height:1}
+.num small{font-size:.38em;font-weight:800;letter-spacing:-.03em;margin-left:4px}
+.num-cap{font-size:17px;color:var(--sub);margin-top:14px;line-height:1.6}
 
-/* team blocks (포지션 + 팀 소개) */
-.team-block{border-top:3px solid var(--k);padding-top:28px;margin-top:56px}
-.team-block:first-of-type{margin-top:8px}
-.tb-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px}
-.tb-no{font:500 14px var(--mono)}
-.tb-name{font-family:var(--display);font-size:clamp(40px,7vw,80px);line-height:1;font-weight:400}
-.tb-tag{font-size:13px;font-weight:900;background:var(--r);color:var(--k);padding:5px 10px}
-.tb-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px;align-items:start}
-.tb-say{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);line-height:1.3}
-.tb-say em{font-style:normal;background:var(--k);color:var(--y);padding:0 6px}
-.tb-text{display:grid;gap:14px;min-width:0}
-.tb-text p{font-size:16px;line-height:1.85;font-weight:500;color:var(--mut)}
-.tb-text b{color:var(--k);font-weight:900}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--k);margin:36px 0 32px;background:var(--w)}
-.facts div{padding:20px 18px;border-right:3px solid var(--k);min-width:0}
-.facts div:last-child{border-right:0}
-.facts small{font:500 11px var(--mono);letter-spacing:.1em;color:var(--r)}
-.facts b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(26px,2.8vw,34px);margin:8px 0 8px;line-height:1.1}
-.facts p{font-size:14px;line-height:1.6;color:var(--mut)}
-.leader{background:var(--k);color:var(--w);padding:32px 30px;margin:36px 0 0}
-.leader .kicker{color:var(--y)}
-.leader blockquote{font-size:clamp(17px,1.8vw,20px);line-height:1.85;font-weight:500}
-.leader blockquote em{font-style:normal;color:var(--y);font-weight:900}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:3px solid var(--k);border-top:0;margin-bottom:32px;background:var(--w)}
-.cg>div{padding:28px 26px;min-width:0}
-.cg>div:first-child{border-right:3px solid var(--k)}
-.cg .kicker{color:var(--r);margin-bottom:6px}
-.cg h4{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.4vw,28px);margin-bottom:16px;line-height:1.3}
-.cg ul{list-style:none;display:grid;gap:14px}
-.cg li{font-size:14.5px;line-height:1.7;color:var(--mut);padding-left:18px;position:relative}
-.cg li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;background:var(--k)}
-.cg li b{display:block;color:var(--k);font-weight:900;font-size:15.5px}
-@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(-n+2){border-bottom:3px solid var(--k)}}
-@media (max-width:760px){.tb-intro,.cg{grid-template-columns:1fr}.tb-intro{gap:20px}.cg>div:first-child{border-right:0;border-bottom:3px solid var(--k)}}
-@media (max-width:480px){.facts{grid-template-columns:1fr}.facts div{border-right:0;border-bottom:3px solid var(--k)}.facts div:last-child{border-bottom:0}}
+/* team */
+.team{border-top:1px solid var(--line)}
+.team:first-of-type{border-top:0}
+.team-label{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pill{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--yellow)}
+.team-name{font-size:clamp(44px,7vw,80px);font-weight:900;letter-spacing:-.06em;line-height:1.05;margin-top:18px}
+.team-grid{display:grid;grid-template-columns:5fr 6fr;gap:64px;margin-top:48px}
+.team-say{font-size:clamp(24px,2.8vw,32px);font-weight:800;line-height:1.4;letter-spacing:-.04em}
+.team-say mark{background:linear-gradient(transparent 58%,var(--yellow) 58%);color:inherit}
+.team-text p{font-size:17px;line-height:1.85;color:var(--sub)}
+.team-text p+p{margin-top:16px}
+.team-text strong{color:var(--ink);font-weight:700}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:40px 56px;margin-top:72px}
+.point h4{font-size:22px;font-weight:800;letter-spacing:-.035em}
+.point p{font-size:16px;line-height:1.75;color:var(--sub);margin-top:8px}
+.quote{margin-top:80px;max-width:820px}
+.quote p{font-size:clamp(22px,2.6vw,29px);font-weight:700;line-height:1.6;letter-spacing:-.035em}
+.quote p span{color:var(--mute)}
+.quote cite{display:flex;align-items:center;gap:10px;font-style:normal;font-size:15px;font-weight:600;color:var(--sub);margin-top:24px}
+.quote cite::before{content:"";width:28px;height:1.5px;background:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:80px}
+.cols h4{font-size:24px;font-weight:800;letter-spacing:-.04em;margin-bottom:24px}
+.cols h4 small{display:block;font-size:14px;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0}
+.cols li{list-style:none;padding:18px 0;border-top:1px solid var(--line)}
+.cols li b{display:block;font-size:17px;font-weight:700;letter-spacing:-.02em}
+.cols li span{display:block;font-size:15.5px;line-height:1.7;color:var(--sub);margin-top:6px}
 
-/* about — 이전 버전(피플팀·상품기획팀 페이지) 디자인 */
-.about-prev{background:#ffffff;color:#14285c;border-top:3px solid var(--k);padding-block:120px}
+/* jobs */
+.jobs{display:grid;gap:12px;margin-top:64px}
+.job{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:28px 32px;border-radius:20px;background:var(--soft);transition:background .2s ease,transform .2s ease}
+.job:hover{background:var(--yellow);transform:translateY(-2px)}
+.job small{font-size:14px;font-weight:600;color:var(--sub)}
+.job h3{font-size:clamp(20px,2.4vw,25px);font-weight:800;letter-spacing:-.035em;margin-top:4px}
+.job .arrow{flex:none;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--white);display:grid;place-items:center;font-size:20px}
+.jobs-head{font-size:15px;font-weight:700;color:var(--sub)}
+
+/* about (이전 페이지 디자인) */
+.about-prev{background:#ffffff;color:#14285c;border-top:1px solid var(--line);padding-block:120px}
 .ap-tag{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8a8a86;margin-bottom:18px;display:block}
-.ap-title{font-family:var(--sans);font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:28px;line-height:1.3}
+.ap-title{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:28px;line-height:1.3}
 .ap-intro{font-size:16px;line-height:1.85;color:#333;max-width:760px;margin-bottom:20px}
 .ap-intro.last{margin-bottom:64px}
 .ap-sub{font-size:clamp(20px,2.6vw,28px);font-weight:800}
@@ -164,64 +171,33 @@ h2{font-family:var(--display);font-size:clamp(32px,5vw,58px);line-height:1.15;ma
 .cv-num{font-size:14px;font-weight:800;color:#14285c;min-width:32px}
 .cv-body h4{font-size:17px;font-weight:800;margin-bottom:8px}
 .cv-body p{font-size:14.5px;line-height:1.7;color:#444;margin-bottom:10px;max-width:640px}
-@media (max-width:760px){.mv-grid{grid-template-columns:1fr}.mv-card{padding:32px 28px}.about-prev{padding-block:80px}}
-@media (max-width:600px){.cv-item{flex-direction:column;gap:8px}}
 
 /* closing */
-.closing{background:var(--k);color:var(--y);padding-block:72px}
-.closing p{font-family:var(--display);font-size:clamp(30px,4.8vw,56px);line-height:1.25}
-.closing p em{font-style:normal;color:var(--w)}
-.closing .btn{display:inline-block;margin-top:32px;background:var(--y);color:var(--k);border-color:var(--y)}
-.closing .btn:hover{background:var(--r);border-color:var(--r)}
-footer{background:var(--k);color:var(--w);border-top:1px solid rgba(255,253,242,.15)}
-footer .inner{padding-block:28px calc(36px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-size:13px}
-footer .flogo{font-family:var(--display);font-size:20px;color:var(--y);margin-right:auto}
-footer a{opacity:.8}
-footer a:hover{opacity:1;color:var(--y)}
-footer .fine{width:100%;opacity:.5;font-size:12px}
+.closing{background:var(--yellow);padding-block:120px}
+.closing p{font-size:clamp(32px,5vw,60px);font-weight:900;line-height:1.25;letter-spacing:-.055em;max-width:16em}
+.closing p em{font-style:normal;color:var(--red)}
+.closing .btn{margin-top:40px}
+footer{background:var(--ink);color:#bdbdb6}
+footer .inner{padding-block:40px calc(48px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;font-size:14px}
+footer .flogo{font-weight:900;font-size:20px;color:var(--white);margin-right:auto;letter-spacing:-.03em}
+footer a:hover{color:var(--white)}
+footer .fine{width:100%;font-size:12px;color:#7a7a74;margin-top:8px}
 
-
-/* ===== REELS: 실제 숏폼/릴스 광고 영상 자리 ===== */
-.reels{background:var(--k);color:var(--w);padding-block:72px 64px;overflow:hidden}
-.reels .kicker{color:var(--y)}
-.reels h2 em{font-style:normal;color:var(--y)}
-.reels .rlead{font-size:16px;line-height:1.75;opacity:.85;max-width:60ch;margin:-12px 0 36px}
-.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--y) transparent}
-.reel{scroll-snap-align:start;min-width:0}
-.screen{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--bgc,#222);isolation:isolate}
-.screen video,.screen .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.screen .poster{object-fit:contain;padding:22% 14% 34%;animation:kb 9s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12) translateY(-3%)}}
-.screen::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 22%,transparent 55%,rgba(0,0,0,.7) 100%);z-index:1;pointer-events:none}
-.r-top{position:absolute;top:10px;left:12px;right:12px;z-index:2}
-.r-prog{height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden}
-.r-prog i{display:block;height:100%;width:0;background:#fff;animation:rp var(--dur,9s) linear infinite}
-@keyframes rp{to{width:100%}}
-.r-head{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-weight:900;font-size:15px;color:#fff}
-.r-head .slot{font:500 10px var(--mono);letter-spacing:.08em;border:1px solid rgba(255,255,255,.6);padding:3px 6px;border-radius:4px}
-.hook{position:absolute;left:12px;right:12px;top:30%;z-index:2;text-align:center;font-family:var(--display);font-size:clamp(26px,2.6vw,34px);line-height:1.15;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45);animation:hk var(--dur,9s) steps(1) infinite}
-.hook span{background:var(--y);color:var(--k);padding:0 6px;text-shadow:none}
-@keyframes hk{0%{opacity:1}33.3%{opacity:0}100%{opacity:0}}
-.timer{position:absolute;top:44px;right:12px;z-index:2;font:500 11px var(--mono);background:var(--r);color:var(--k);padding:3px 7px;border-radius:999px}
-.rail{position:absolute;right:10px;bottom:96px;z-index:2;display:grid;gap:16px;justify-items:center}
-.rail svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))}
-.r-bottom{position:absolute;left:12px;right:48px;bottom:52px;z-index:2;color:#fff}
-.acct{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
-.acct i{width:26px;height:26px;border-radius:50%;background:var(--y);border:2px solid #fff;flex:none}
-.acct small{font-weight:500;opacity:.8;font-size:11px}
-.cap{font-size:12.5px;line-height:1.45;margin-top:6px;opacity:.95;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.r-cta{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.95);color:var(--k);font-weight:900;font-size:13px;padding:10px 12px;border-radius:8px}
-.reel figcaption{display:flex;justify-content:space-between;gap:8px;margin-top:12px;font-size:13px}
-.reel figcaption b{color:var(--y);font:500 12px var(--mono)}
-.reels .hint{margin-top:20px;font:500 12px var(--mono);opacity:.55}
-@media (max-width:760px){.strip{grid-auto-columns:68%}}
-
-@media (max-width:760px){
-  .count,.stats{grid-template-columns:1fr}
-  .count div{border-right:0;border-bottom:3px solid var(--k)}
-  .count div:last-child{border-bottom:0}
-  .job{grid-template-columns:1fr;gap:12px}
-  .job a{justify-self:start}
+@media (max-width:860px){
+  .team-grid,.points,.cols{grid-template-columns:1fr}
+  .team-grid{gap:28px}
+  .points{gap:32px}
+  .cols{gap:48px}
+  .mv-grid{grid-template-columns:1fr}
+  .mv-card{padding:32px 28px}
+}
+@media (max-width:640px){
+  .sec-pad,.reels,.about-prev,.closing{padding-block:88px}
+  .top nav{display:none}
+  .num-row{grid-template-columns:1fr;gap:40px}
+  .job{padding:22px 20px}
+  .job .arrow{width:40px;height:40px}
+  .cv-item{flex-direction:column;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -233,239 +209,183 @@ footer .fine{width:100%;opacity:.5;font-size:12px}
     <div class="splash-num" id="splashNum">3</div>
     <div class="splash-cap">LSSC 콘텐츠 2본부 + 바이럴마케팅팀 팀빌딩</div>
   </div>
-  <button class="splash-skip" id="splashSkip" type="button">건너뛰기 →</button>
+  <button class="splash-skip" id="splashSkip" type="button">건너뛰기</button>
 </div>
 
-<header class="topbar">
+<header class="top">
   <div class="inner">
-    <div class="logo">LSSC<sup>®</sup></div>
-    <a class="back" href="https://lssc.ninehire.site/" target="_blank" rel="noopener">← 채용홈으로</a>
+    <div class="logo">LSSC</div>
+    <nav>
+      <a href="#reels">콘텐츠</a>
+      <a href="#teams">팀 소개</a>
+      <a href="#about">회사 소개</a>
+      <a href="https://lssc.ninehire.site/" target="_blank" rel="noopener">채용홈</a>
+    </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<div class="inner hero">
-  <div class="team-band">
-    <span class="tb">NOW · TEAM BUILDING</span>
-    <p class="tb-line"><span>콘텐츠 2본부</span><span class="x">+</span><span>바이럴마케팅팀</span><mark>팀빌딩</mark></p>
+<section class="hero">
+  <div class="inner">
+    <p class="hero-team">콘텐츠 2본부<span class="plus">+</span>바이럴마케팅팀 <span class="tb">팀빌딩</span></p>
+    <h1>멈춰.<br><em>3초</em>면<br>충분해.</h1>
+    <p class="hero-sub">스크롤을 멈추게 하라, 승부는 첫 3초.</p>
+    <p class="hero-lead">LSSC 콘텐츠본부는 첫 3초의 훅으로 고객을 멈춰 세우고, 그 3초를 매출로 바꾸는 팀입니다. 지금 <strong>콘텐츠 2본부</strong>와 <strong>바이럴마케팅팀</strong>에서, LSSC의 <strong>Phase2</strong>를 만들어 갈 동료를 모십니다.</p>
+    <div class="hero-cta">
+      <a class="btn btn-dark" href="#teams">채용 중인 포지션 보기 <span aria-hidden="true">→</span></a>
+      <a class="btn btn-line" href="#about">LSSC 알아보기</a>
+    </div>
+    <p class="flow"><b class="sec">1초</b>보게 만들고 <span>/</span> <b class="sec">2초</b>멈추게 만들고 <span>/</span> <b class="sec">3초</b>누르게 만든다</p>
   </div>
-  <div class="tc" aria-hidden="true"><span>0:00</span><span class="track"><i></i></span><span>0:03</span></div>
-  <h1 class="big">멈춰.<br><em>3초</em>면<br>충분해.</h1>
-  <p class="sub">스크롤을 멈추게 하라, 승부는 첫 3초.</p>
-  <p class="lead">LSSC 콘텐츠본부는 첫 3초의 훅으로 고객을 멈춰 세우고, 그 3초를 매출로 바꾸는 팀입니다. 지금 <b>콘텐츠 2본부</b>와 <b>바이럴마케팅팀</b>에서, LSSC의 <b>Phase2</b>를 만들어 갈 동료를 모십니다.</p>
-  <div class="hero-cta">
-    <a class="btn btn-k" href="#positions">오픈 포지션 4개 보기 →</a>
-    <a class="btn btn-o" href="#about">LSSC 알아보기</a>
-  </div>
-  <div class="count">
-    <div><b>1초</b><p>보게 만든다<br>인사이트 &amp; 기획</p></div>
-    <div><b>2초</b><p>멈추게 만든다<br>훅 설계 &amp; 제작</p></div>
-    <div><b>3초</b><p>누르게 만든다<br>확산 · 전환 · 위닝 소재</p></div>
-  </div>
-</div>
+</section>
 
 <!-- REELS -->
 <section class="reels" id="reels">
   <div class="inner">
-    <span class="kicker">REELS WE MADE</span>
-    <h2>우리가 만든 <em>3초</em>들</h2>
-    <p class="rlead">LSSC 콘텐츠본부가 직접 기획하고 찍고 집행한 숏폼·릴스 광고입니다. 피드에서 고객을 멈춰 세운 첫 3초를 확인해 보세요.</p>
+    <p class="eyebrow">우리가 만든 콘텐츠</p>
+    <h2 class="title">피드에서 고객을<br>멈춰 세운 3초들</h2>
+    <p class="desc">LSSC 콘텐츠본부가 직접 기획하고, 찍고, 집행한 숏폼·릴스 광고입니다.</p>
     <div class="strip">
       <figure class="reel" data-video="">
         <div class="screen" style="--bgc:#2b2f3a;--dur:9s">
-          <img class="poster" src="assets/brands/racelturn.png" alt="라셀턴 광고 영상 자리 (예시 이미지)">
-          <div class="r-top"><div class="r-prog"><i></i></div><div class="r-head"><span>Reels</span><span class="slot">영상 자리 01</span></div></div>
-          <span class="timer">0:03</span>
-          <p class="hook">멈춰.<br><span>첫 3초</span></p>
-          <div class="rail" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </div>
-          <div class="r-bottom"><div class="acct"><i></i><span>라셀턴<br><small>광고</small></span></div><p class="cap">훅 · 첫 장면 설계 · 실제 광고 영상으로 교체 예정</p></div>
+          <img class="poster" src="assets/brands/racelturn.png" alt="라셀턴 광고 영상">
+          <div class="r-prog"><i></i></div>
+          <p class="hook">멈춰.<br>첫 3초</p>
+          <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg></div>
+          <div class="r-bottom"><div class="acct"><i></i><span>라셀턴<small>광고</small></span></div></div>
           <div class="r-cta"><span>자세히 보기</span><span>›</span></div>
         </div>
-        <figcaption><span>라셀턴 · 훅 · 첫 장면 설계</span><b>HOOK</b></figcaption>
+        <p class="name">라셀턴</p>
       </figure>
       <figure class="reel" data-video="">
         <div class="screen" style="--bgc:#3b5bdb;--dur:10s">
-          <img class="poster" src="assets/brands/lactodito.png" alt="락토디토 광고 영상 자리 (예시 이미지)">
-          <div class="r-top"><div class="r-prog"><i></i></div><div class="r-head"><span>Reels</span><span class="slot">영상 자리 02</span></div></div>
-          <span class="timer">0:03</span>
-          <p class="hook">보는 순간<br><span>궁금하게</span></p>
-          <div class="rail" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </div>
-          <div class="r-bottom"><div class="acct"><i></i><span>락토디토<br><small>광고</small></span></div><p class="cap">숏폼 광고 소재 · 실제 광고 영상으로 교체 예정</p></div>
+          <img class="poster" src="assets/brands/lactodito.png" alt="락토디토 광고 영상">
+          <div class="r-prog"><i></i></div>
+          <p class="hook">보는 순간<br>궁금하게</p>
+          <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg></div>
+          <div class="r-bottom"><div class="acct"><i></i><span>락토디토<small>광고</small></span></div></div>
           <div class="r-cta"><span>자세히 보기</span><span>›</span></div>
         </div>
-        <figcaption><span>락토디토 · 숏폼 광고 소재</span><b>CTR</b></figcaption>
+        <p class="name">락토디토</p>
       </figure>
       <figure class="reel" data-video="">
         <div class="screen" style="--bgc:#b0476b;--dur:11s">
-          <img class="poster" src="assets/brands/virenne.png" alt="비렌느 광고 영상 자리 (예시 이미지)">
-          <div class="r-top"><div class="r-prog"><i></i></div><div class="r-head"><span>Reels</span><span class="slot">영상 자리 03</span></div></div>
-          <span class="timer">0:03</span>
-          <p class="hook">넘기기 전에<br><span>잡아라</span></p>
-          <div class="rail" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </div>
-          <div class="r-bottom"><div class="acct"><i></i><span>비렌느<br><small>광고</small></span></div><p class="cap">릴스 광고 소재 · 실제 광고 영상으로 교체 예정</p></div>
+          <img class="poster" src="assets/brands/virenne.png" alt="비렌느 광고 영상">
+          <div class="r-prog"><i></i></div>
+          <p class="hook">넘기기 전에<br>잡아라</p>
+          <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg></div>
+          <div class="r-bottom"><div class="acct"><i></i><span>비렌느<small>광고</small></span></div></div>
           <div class="r-cta"><span>자세히 보기</span><span>›</span></div>
         </div>
-        <figcaption><span>비렌느 · 릴스 광고 소재</span><b>HOOK RATE</b></figcaption>
+        <p class="name">비렌느</p>
       </figure>
       <figure class="reel" data-video="">
         <div class="screen" style="--bgc:#1f7a5a;--dur:12s">
-          <img class="poster" src="assets/brands/blp.png" alt="비엘피 광고 영상 자리 (예시 이미지)">
-          <div class="r-top"><div class="r-prog"><i></i></div><div class="r-head"><span>Reels</span><span class="slot">영상 자리 04</span></div></div>
-          <span class="timer">0:03</span>
-          <p class="hook">말보다<br><span>숫자로</span></p>
-          <div class="rail" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </div>
-          <div class="r-bottom"><div class="acct"><i></i><span>비엘피<br><small>광고</small></span></div><p class="cap">퍼포먼스 소재 · 실제 광고 영상으로 교체 예정</p></div>
+          <img class="poster" src="assets/brands/blp.png" alt="비엘피 광고 영상">
+          <div class="r-prog"><i></i></div>
+          <p class="hook">말보다<br>숫자로</p>
+          <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg></div>
+          <div class="r-bottom"><div class="acct"><i></i><span>비엘피<small>광고</small></span></div></div>
           <div class="r-cta"><span>자세히 보기</span><span>›</span></div>
         </div>
-        <figcaption><span>비엘피 · 퍼포먼스 소재</span><b>ROAS</b></figcaption>
+        <p class="name">비엘피</p>
       </figure>
       <figure class="reel" data-video="">
         <div class="screen" style="--bgc:#8a5a2b;--dur:13s">
-          <img class="poster" src="assets/brands/wrinkleback.png" alt="링클백 광고 영상 자리 (예시 이미지)">
-          <div class="r-top"><div class="r-prog"><i></i></div><div class="r-head"><span>Reels</span><span class="slot">영상 자리 05</span></div></div>
-          <span class="timer">0:03</span>
-          <p class="hook">살아남은<br><span>위닝 소재</span></p>
-          <div class="rail" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg>
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
-          </div>
-          <div class="r-bottom"><div class="acct"><i></i><span>링클백<br><small>광고</small></span></div><p class="cap">바이럴 · 확산 · 실제 광고 영상으로 교체 예정</p></div>
+          <img class="poster" src="assets/brands/wrinkleback.png" alt="링클백 광고 영상">
+          <div class="r-prog"><i></i></div>
+          <p class="hook">살아남은<br>위닝 소재</p>
+          <div class="rail" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4C11.8 6.1 13.2 5 15.2 5c3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5A8.5 8.5 0 1 1 21 11.5z"/></svg><svg viewBox="0 0 24 24"><path d="M22 3 11 13"/><path d="M22 3l-7 18-4-8-8-4z"/></svg></div>
+          <div class="r-bottom"><div class="acct"><i></i><span>링클백<small>광고</small></span></div></div>
           <div class="r-cta"><span>자세히 보기</span><span>›</span></div>
         </div>
-        <figcaption><span>링클백 · 바이럴 · 확산</span><b>SCALE</b></figcaption>
+        <p class="name">링클백</p>
       </figure>
     </div>
-    <p class="hint">← 옆으로 넘겨서 더 보기 →</p>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof">
+<!-- NUMBERS -->
+<section class="numbers sec-pad">
   <div class="inner">
-    <span class="kicker">PROOF</span>
-    <h2>말보다 <em>숫자로</em> 증명합니다.</h2>
-    <div class="stats">
-      <div><b>1,200억</b><p>작년 LSSC 연매출.<br>데이터 기반 D2C 미디어 커머스.</p></div>
-      <div><b>80+</b><p>콘텐츠로 키워온 브랜드.<br>비렌느, 라셀턴, 락토디토, 럼버트 등.</p></div>
+    <p class="eyebrow">말보다 숫자로</p>
+    <h2 class="title">콘텐츠가 만든 성장</h2>
+    <div class="num-row">
+      <div><p class="num">1,200<small>억 원</small></p><p class="num-cap">작년 LSSC 연매출<br>데이터 기반 D2C 미디어 커머스</p></div>
+      <div><p class="num">80<small>개 이상</small></p><p class="num-cap">콘텐츠로 키워온 브랜드<br>비렌느, 라셀턴, 락토디토, 럼버트 등</p></div>
     </div>
   </div>
 </section>
 
-<!-- POSITIONS -->
-<section id="positions">
+<div id="teams">
+<!-- TEAM 01 -->
+<section class="team sec-pad">
   <div class="inner">
-    <span class="kicker">OPEN POSITION · 4</span>
-    <h2>지금 함께할 동료를 찾습니다</h2>
-
-    <!-- TEAM 01 : 콘텐츠 2본부 -->
-    <article class="team-block">
-      <header class="tb-head">
-        <span class="tb-no">TEAM 01</span>
-        <h3 class="tb-name">콘텐츠 2본부</h3>
-        <span class="tb-tag">NEW · 신규 출범 조직</span>
-      </header>
-      <div class="tb-intro">
-        <p class="tb-say">“이 제품을 <em>누구에게</em>,<br><em>어떤 메시지로</em> 전달할 것인가”</p>
-        <div class="tb-text">
-          <p>콘텐츠 2본부는 브랜드 포트폴리오의 가파른 <b>J커브 성장</b>에 맞춰 LSSC가 새롭게 출범하는 조직입니다. 구성원 각자의 고유한 관점과 다양한 시도를 적극 지원하며, 우리만의 새로운 방식으로 신규 브랜드를 주도적으로 이끌어갑니다.</p>
-          <p>2본부의 콘텐츠 마케터는 직접 핵심 소구를 도출해 숏폼 광고를 기획하고, LSSC 내부 에디터와 협업해 콘텐츠를 제작하며, 광고 집행 및 데이터 분석을 통해 <b>‘무엇이 왜 반응을 얻었는지’</b> 찾아냅니다.</p>
-        </div>
+    <div class="team-label"><span class="pill">새로 출범하는 조직</span></div>
+    <h2 class="team-name">콘텐츠 2본부</h2>
+    <div class="team-grid">
+      <p class="team-say">이 제품을 누구에게, <mark>어떤 메시지로</mark> 전달할 것인가를 설계하는 사람들</p>
+      <div class="team-text">
+        <p>콘텐츠 2본부는 브랜드 포트폴리오의 가파른 J커브 성장에 맞춰 LSSC가 새롭게 출범하는 조직입니다. 구성원 각자의 고유한 관점과 다양한 시도를 적극 지원하며, 우리만의 새로운 방식으로 신규 브랜드를 주도적으로 이끌어갑니다.</p>
+        <p>직접 핵심 소구를 도출해 숏폼 광고를 기획하고, LSSC 내부 에디터와 협업해 콘텐츠를 제작하며, 광고 집행과 데이터 분석을 통해 <strong>무엇이 왜 반응을 얻었는지</strong> 찾아냅니다.</p>
       </div>
-      <div class="facts">
-        <div><small>BRANDS / MARKETER</small><b>2~3개</b><p>마케터 한 명이 2~3개 브랜드를 집중 담당하며 브랜드와 고객을 깊이 이해합니다.</p></div>
-        <div><small>OWNERSHIP</small><b>A to Z</b><p>소구 도출 → 숏폼 기획 → 제작 → 집행 → 성과 분석까지 직접 주도합니다.</p></div>
-        <div><small>TEST</small><b>생성형 AI</b><p>새로운 소구와 포맷은 물론 생성형 AI 소재까지 자유롭게 테스트합니다.</p></div>
-        <div><small>RESULT</small><b>매출로 증명</b><p>자신의 기획을 실제 구매 전환과 ‘매출’이라는 결과로 직접 증명합니다.</p></div>
-      </div>
-      <div class="jobs">
-        <div class="job">
-          <span class="t">TAKE 01</span>
-          <div><span class="team">콘텐츠 2본부</span><h3>미디어커머스 콘텐츠 마케팅 팀장</h3></div>
-          <a href="https://lssc.ninehire.site/job_posting/mlulo1KH" target="_blank" rel="noopener">지원하기 →</a>
-        </div>
-        <div class="job">
-          <span class="t">TAKE 02</span>
-          <div><span class="team">콘텐츠 2본부</span><h3>미디어커머스 콘텐츠 마케팅 파트장</h3></div>
-          <a href="https://lssc.ninehire.site/job_posting/uCvEqroj" target="_blank" rel="noopener">지원하기 →</a>
-        </div>
-        <div class="job">
-          <span class="t">TAKE 03</span>
-          <div><span class="team">콘텐츠 2본부</span><h3>미디어커머스 콘텐츠 마케터</h3></div>
-          <a href="https://lssc.ninehire.site/job_posting/Y2jwEnSx" target="_blank" rel="noopener">지원하기 →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- TEAM 02 : 바이럴마케팅팀 -->
-    <article class="team-block">
-      <header class="tb-head">
-        <span class="tb-no">TEAM 02</span>
-        <h3 class="tb-name">바이럴마케팅팀</h3>
-        <span class="tb-tag">SNS · 먼저 시도하는 팀</span>
-      </header>
-      <div class="tb-intro">
-        <p class="tb-say">기획에 머무르기보다,<br><em>먼저 시도해 보는</em> 팀</p>
-        <div class="tb-text">
-          <p>바이럴마케팅팀은 다양한 SNS 채널을 통해 고객에게 제품을 알리고, 브랜드에 대한 긍정적인 관심과 호감도를 만들어가는 조직입니다.</p>
-          <p>콘텐츠를 제작하고 업로드하는 데 그치지 않고, 트렌드에 맞는 아이디어를 <b>빠르게 실행</b>하고 성과를 분석하며 콘텐츠의 완성도와 효율을 지속적으로 고도화합니다.</p>
-        </div>
-      </div>
-      <figure class="leader">
-        <span class="kicker">TEAM LEAD · 리더가 전하는 이야기</span>
-        <blockquote>“빠르게 바뀌는 SNS 트렌드 속에서는 기획에 머무르기보다 먼저 시도해 보는 것이 무엇보다 중요하다고 생각합니다. 물론 모든 시도가 좋은 결과로 이어질 수는 없습니다. 하지만 실패하더라도 그 안에서 배울 점을 찾고, 다시 시도를 이어가는 과정 자체가 의미 있다고 믿습니다. <em>새로운 아이디어를 자유롭게 제안하고, 결과에 흔들리기보다 다음 액션을 함께 찾아 나갈 수 있는 동료</em>를 기다리고 있습니다.”</blockquote>
-      </figure>
-      <div class="cg">
-        <div>
-          <span class="kicker">CULTURE</span>
-          <h4>혼자가 아닌, 함께 고민하는 문화</h4>
-          <ul>
-            <li><b>함께 고민하고 해결하는 협업 문화</b>개인의 성과를 넘어 팀 전체가 최적의 아웃풋을 낼 수 있도록 아이디어 기획부터 성과 리뷰까지 함께 논의합니다.</li>
-            <li><b>작은 아이디어도 제안하는 문화</b>사소하거나 실현 가능성이 낮아 보이는 아이디어라도 자유롭게 이야기하고, 가능성을 검토해 직접 실행해 봅니다.</li>
-            <li><b>근거 있는 유연한 방향 전환</b>트렌드와 성과에 따라 방향을 바꿀 때, 그 이유와 데이터 근거를 팀에 명확히 공유하며 최적의 전략을 찾습니다.</li>
-          </ul>
-        </div>
-        <div>
-          <span class="kicker">GROWTH</span>
-          <h4>바이럴마케팅팀에서 얻게 될 경험</h4>
-          <ul>
-            <li><b>채널 운영 &amp; 콘텐츠 제작 실무 역량</b>다양한 SNS 플랫폼 운영부터 AI를 활용한 영상·이미지 제작까지, 기획·제작·업로드·분석 전 과정을 직접 진행합니다.</li>
-            <li><b>콘텐츠 성과를 통한 실질적 기여</b>직접 만든 콘텐츠가 유저 반응을 얻고, 브랜드 인지도와 실제 매출로 이어지는 과정을 경험합니다.</li>
-            <li><b>데이터 기반의 분석 &amp; 개선 역량</b>주간 단위로 조회수·유입·전환 지표를 점검하고 원인을 분석해 다음 콘텐츠에 반영합니다.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="jobs">
-        <div class="job">
-          <span class="t">TAKE 04</span>
-          <div><span class="team">바이럴마케팅팀</span><h3>바이럴 콘텐츠 마케터</h3></div>
-          <a href="https://lssc.ninehire.site/job_posting/X2xIfhAJ" target="_blank" rel="noopener">지원하기 →</a>
-        </div>
-      </div>
-    </article>
+    </div>
+    <div class="points">
+      <div class="point"><h4>한 명이 2~3개 브랜드를 깊게</h4><p>브랜드와 고객을 깊이 이해하고, 차별화된 소구점을 직접 발굴합니다.</p></div>
+      <div class="point"><h4>기획부터 분석까지 직접</h4><p>소구 도출, 숏폼 기획, 제작, 집행, 성과 분석까지 콘텐츠의 A to Z를 주도합니다.</p></div>
+      <div class="point"><h4>생성형 AI 소재까지 자유롭게</h4><p>새로운 소구와 포맷은 물론 생성형 AI 소재까지 마음껏 테스트해 볼 수 있습니다.</p></div>
+      <div class="point"><h4>기획을 매출로 증명</h4><p>LSSC의 성장 궤도 위에서, 자신의 기획을 실제 구매 전환과 매출로 증명합니다.</p></div>
+    </div>
+    <div class="jobs">
+      <p class="jobs-head">콘텐츠 2본부 채용 포지션</p>
+      <a class="job" href="https://lssc.ninehire.site/job_posting/mlulo1KH" target="_blank" rel="noopener"><div><small>콘텐츠 2본부</small><h3>미디어커머스 콘텐츠 마케팅 팀장</h3></div><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="job" href="https://lssc.ninehire.site/job_posting/uCvEqroj" target="_blank" rel="noopener"><div><small>콘텐츠 2본부</small><h3>미디어커머스 콘텐츠 마케팅 파트장</h3></div><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="job" href="https://lssc.ninehire.site/job_posting/Y2jwEnSx" target="_blank" rel="noopener"><div><small>콘텐츠 2본부</small><h3>미디어커머스 콘텐츠 마케터</h3></div><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
+
+<!-- TEAM 02 -->
+<section class="team sec-pad">
+  <div class="inner">
+    <div class="team-label"><span class="pill">먼저 시도하는 팀</span></div>
+    <h2 class="team-name">바이럴마케팅팀</h2>
+    <div class="team-grid">
+      <p class="team-say">기획에 머무르기보다, <mark>먼저 시도해 보는</mark> 사람들</p>
+      <div class="team-text">
+        <p>바이럴마케팅팀은 다양한 SNS 채널을 통해 고객에게 제품을 알리고, 브랜드에 대한 긍정적인 관심과 호감도를 만들어가는 조직입니다.</p>
+        <p>콘텐츠를 제작하고 업로드하는 데 그치지 않고, 트렌드에 맞는 아이디어를 빠르게 실행하고 성과를 분석하며 콘텐츠의 완성도와 효율을 계속 높여갑니다.</p>
+      </div>
+    </div>
+    <blockquote class="quote">
+      <p>“빠르게 바뀌는 SNS 트렌드 속에서는 기획에 머무르기보다 먼저 시도해 보는 것이 무엇보다 중요하다고 생각합니다. <span>물론 모든 시도가 좋은 결과로 이어질 수는 없습니다. 하지만 실패하더라도 그 안에서 배울 점을 찾고, 다시 시도를 이어가는 과정 자체가 의미 있다고 믿습니다.</span> 새로운 아이디어를 자유롭게 제안하고, 결과에 흔들리기보다 다음 액션을 함께 찾아 나갈 수 있는 동료를 기다리고 있습니다.”</p>
+      <cite>바이럴마케팅팀 리더</cite>
+    </blockquote>
+    <div class="cols">
+      <div>
+        <h4><small>Culture</small>혼자가 아닌, 함께 고민하는 문화</h4>
+        <ul>
+          <li><b>함께 고민하고 해결해요</b><span>개인의 성과를 넘어 팀 전체가 최적의 아웃풋을 낼 수 있도록, 아이디어 기획부터 성과 리뷰까지 함께 논의합니다.</span></li>
+          <li><b>작은 아이디어도 꺼내 놓아요</b><span>사소하거나 실현 가능성이 낮아 보이는 아이디어라도 자유롭게 이야기하고, 가능성을 검토해 직접 실행해 봅니다.</span></li>
+          <li><b>근거 있게 방향을 바꿔요</b><span>트렌드와 성과에 따라 방향을 바꿀 때는 그 이유와 데이터 근거를 팀에 명확히 공유합니다.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4><small>Growth</small>이 팀에서 얻게 될 경험</h4>
+        <ul>
+          <li><b>채널 운영과 콘텐츠 제작 실무</b><span>다양한 SNS 플랫폼 운영부터 AI를 활용한 영상·이미지 제작까지, 기획·제작·업로드·분석 전 과정을 직접 진행합니다.</span></li>
+          <li><b>성과로 이어지는 실질적 기여</b><span>직접 만든 콘텐츠가 유저 반응을 얻고, 브랜드 인지도와 실제 매출로 이어지는 과정을 경험합니다.</span></li>
+          <li><b>데이터로 분석하고 개선하는 힘</b><span>매주 조회수·유입·전환 지표를 점검하고 원인을 분석해 다음 콘텐츠에 반영합니다.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jobs">
+      <p class="jobs-head">바이럴마케팅팀 채용 포지션</p>
+      <a class="job" href="https://lssc.ninehire.site/job_posting/X2xIfhAJ" target="_blank" rel="noopener"><div><small>바이럴마케팅팀</small><h3>바이럴 콘텐츠 마케터</h3></div><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+</div>
 
 <!-- ABOUT LSSC (이전 버전 디자인) -->
 <section class="about-prev" id="about">
@@ -505,20 +425,20 @@ footer .fine{width:100%;opacity:.5;font-size:12px}
 </section>
 
 <!-- CLOSING -->
-<div class="closing">
+<section class="closing">
   <div class="inner">
-    <p>소비자의 <em>3초</em>를 점유하는 비즈니스 임팩트를,<br>LSSC에서 경험할 수 있습니다.</p>
-    <a class="btn" href="#positions">오픈 포지션 보기 →</a>
+    <p>소비자의 <em>3초</em>를 점유하는 비즈니스 임팩트를, LSSC에서 경험할 수 있습니다.</p>
+    <a class="btn btn-dark" href="#teams">채용 중인 포지션 보기 <span aria-hidden="true">→</span></a>
   </div>
-</div>
+</section>
 
 <footer>
   <div class="inner">
-    <span class="flogo">LSSC®</span>
-    <a href="https://lssc.ninehire.site/" target="_blank" rel="noopener">나인하이어 채용홈</a>
-    <a href="https://lssc.ninehire.site/job_posting/mlulo1KH" target="_blank" rel="noopener">미디어커머스 콘텐츠 마케팅 팀장</a>
-    <a href="https://lssc.ninehire.site/job_posting/uCvEqroj" target="_blank" rel="noopener">미디어커머스 콘텐츠 마케팅 파트장</a>
-    <a href="https://lssc.ninehire.site/job_posting/Y2jwEnSx" target="_blank" rel="noopener">미디어커머스 콘텐츠 마케터</a>
+    <span class="flogo">LSSC</span>
+    <a href="https://lssc.ninehire.site/" target="_blank" rel="noopener">채용홈</a>
+    <a href="https://lssc.ninehire.site/job_posting/mlulo1KH" target="_blank" rel="noopener">콘텐츠 마케팅 팀장</a>
+    <a href="https://lssc.ninehire.site/job_posting/uCvEqroj" target="_blank" rel="noopener">콘텐츠 마케팅 파트장</a>
+    <a href="https://lssc.ninehire.site/job_posting/Y2jwEnSx" target="_blank" rel="noopener">콘텐츠 마케터</a>
     <a href="https://lssc.ninehire.site/job_posting/X2xIfhAJ" target="_blank" rel="noopener">바이럴 콘텐츠 마케터</a>
     <p class="fine">© LSSC. All rights reserved.</p>
   </div>
@@ -529,7 +449,7 @@ footer .fine{width:100%;opacity:.5;font-size:12px}
   var splash=document.getElementById('splash');
   if(!splash) return;
   var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function done(){ if(splash.classList.contains('hide')) return; splash.classList.add('hide'); setTimeout(function(){ splash.remove(); },600); }
+  function done(){ if(splash.classList.contains('hide')) return; splash.classList.add('hide'); setTimeout(function(){ splash.remove(); },500); }
   if(reduce){ splash.remove(); return; }
   var num=document.getElementById('splashNum'), n=3;
   var timer=setInterval(function(){
@@ -553,7 +473,7 @@ footer .fine{width:100%;opacity:.5;font-size:12px}
     v.src=src; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline',''); v.preload='metadata';
     var screen=r.querySelector('.screen'); var poster=screen.querySelector('.poster');
     v.poster=poster.src; screen.insertBefore(v,poster); poster.remove();
-    screen.querySelector('.hook').remove();
+    var hook=screen.querySelector('.hook'); if(hook) hook.remove();
     if(io) io.observe(r);
   });
 })();

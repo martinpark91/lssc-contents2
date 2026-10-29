@@ -6,7 +6,7 @@
 - 인트로(3·2·1 카운트다운) → Hero("멈춰. 3초면 충분해.") → 릴스 광고 영상 → 숫자 → 팀별 소개 + 오픈 포지션 → About LSSC → 마무리 문구
 - 지원 버튼은 나인하이어 공고로 새 탭 연결
   - 콘텐츠 2본부: mlulo1KH, uCvEqroj, Y2jwEnSx
-  - 바이럴마케팅팀 바이럴 콘텐츠 마케터: X2xIfhAJ
+  - (바이럴마케팅팀은 페이지에서 제외)
 
 ## 릴스 영상 넣는 법
 1. 세로형(9:16) mp4 파일을 `assets/videos/` 폴더에 넣습니다.
@@ -14,4 +14,4 @@
 3. 커밋·푸시하면 자동 재배포됩니다.
 
 ## 링크 미리보기 이미지
-`assets/og-image-v3.jpg` (원본: `assets/og-source.html`)
+`assets/og-image-v4.jpg` (원본: `assets/og-source.html`)

@@ -133,13 +133,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 .mv-label::before{content:'';width:7px;height:7px;border-radius:50%;background:#39ff14;box-shadow:0 0 6px rgba(57,255,20,.6);flex-shrink:0}
 .mv-headline{font-size:clamp(21px,2.4vw,27px);font-weight:800;line-height:1.45;letter-spacing:-.01em;margin-bottom:16px;color:#14285c}
 .mv-body{font-size:15px;line-height:1.8;color:#444}
-.cv-head{margin-bottom:32px}
-.cv-list{display:flex;flex-direction:column}
-.cv-item{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid #e5e3df}
-.cv-item:last-child{border-bottom:none}
-.cv-num{font-size:14px;font-weight:800;color:#14285c;min-width:32px}
-.cv-body h4{font-size:17px;font-weight:800;margin-bottom:8px}
-.cv-body p{font-size:14.5px;line-height:1.7;color:#444;margin-bottom:10px;max-width:640px}
+.cv-head{margin-bottom:48px}
+.sv-motto{font-size:clamp(28px,4vw,46px);font-weight:900;line-height:1.25;letter-spacing:-.04em;color:#14285c}
+.sv-motto span{background:linear-gradient(transparent 60%,rgba(57,255,20,.5) 60%)}
+.sv-motto-ko{font-size:16px;line-height:1.75;color:#444;margin-top:14px}
+.sv-eq{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:80px}
+.sv-eq-card{background:#0b1a3f;background:linear-gradient(160deg,#0b1a3f 0%,#1c3a82 100%);color:#c9c9c7;border-radius:24px;padding:32px 28px;min-width:0}
+.sv-formula{font-size:clamp(19px,1.9vw,22px);font-weight:800;color:#ffffff;letter-spacing:-.02em;line-height:1.35;margin-bottom:14px}
+.sv-formula b{display:block;color:#39ff14;font-weight:900}
+.sv-eq-card p:last-child{font-size:14.5px;line-height:1.75}
+.sv-eq-card strong{color:#ffffff;font-weight:700}
+.sv-groups{display:grid;grid-template-columns:5fr 3fr;gap:56px;align-items:start}
+.sv-group-title{font-size:14px;font-weight:600;color:#8a8a86;padding-bottom:14px;border-bottom:2px solid #14285c}
+.sv-group-title b{font-size:20px;font-weight:900;color:#14285c;letter-spacing:.02em;margin-right:8px}
+.sv-row{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid #e5e3df}
+.sv-letter{flex:none;width:44px;height:44px;border-radius:12px;background:#14285c;color:#39ff14;display:grid;place-items:center;font-size:22px;font-weight:900}
+.sv-body{min-width:0}
+.sv-body h4{font-size:18px;font-weight:800;color:#14285c;letter-spacing:-.02em}
+.sv-body h4 em{display:block;font-style:normal;font-size:13.5px;font-weight:600;color:#8a8a86;margin-top:2px;letter-spacing:0}
+.sv-body p{font-size:15px;line-height:1.7;color:#444;margin-top:6px}
+@media (max-width:860px){.sv-eq,.sv-groups{grid-template-columns:1fr}.sv-groups{gap:40px}}
 
 /* closing */
 .closing{background:var(--navy-grad);color:var(--white);padding-block:120px}
@@ -165,7 +178,6 @@ footer .fine{width:100%;font-size:12px;color:#7a7a74;margin-top:8px}
   .num-row{grid-template-columns:1fr;gap:40px}
   .job{padding:22px 20px}
   .job .arrow{width:40px;height:40px}
-  .cv-item{flex-direction:column;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -274,14 +286,40 @@ footer .fine{width:100%;font-size:12px;color:#7a7a74;margin-top:8px}
 
     <div class="cv-head">
       <span class="ap-tag" style="margin-bottom:8px;">Core Values</span>
-      <h3 class="ap-sub">우리가 함께하고 싶은 인재상</h3>
+      <h3 class="sv-motto"><span>SCALE</span> is how we work.<br><span>OUT</span> is who we become.</h3>
+      <p class="sv-motto-ko">SCALE은 우리가 일하는 방식이고, OUT은 그 방식이 쌓여 만들어진 사람입니다.</p>
     </div>
-    <div class="cv-list">
-      <div class="cv-item"><div class="cv-num">01</div><div class="cv-body"><h4>목표에 몰입해 성과를 만들어내는 인재</h4><p>안 되는 이유보다 되는 방법을 찾고, 끝까지 실행해 목표를 반드시 결과로 연결합니다.</p></div></div>
-      <div class="cv-item"><div class="cv-num">02</div><div class="cv-body"><h4>유연한 태도로 변화를 수용하는 인재</h4><p>빠르게 달라지는 시장과 조직 상황을 열린 태도로 받아들이고, 변화를 빠르게 수용하고 성장합니다.</p></div></div>
-      <div class="cv-item"><div class="cv-num">03</div><div class="cv-body"><h4>트렌드에 대한 감각과 이해로 남다른 성과를 만드는 인재</h4><p>스스로 학습한 트렌드에 대한 감각과 이해를 바탕으로, 고객의 마음을 움직이는 차별화된 결과를 만듭니다.</p></div></div>
-      <div class="cv-item"><div class="cv-num">04</div><div class="cv-body"><h4>선하고 열린 태도로 팀에 긍정적인 영향을 주는 인재</h4><p>동료의 의견을 존중하고 열린 마음으로 소통하며, 조직 전체에 좋은 에너지와 신뢰를 더합니다.</p></div></div>
-      <div class="cv-item"><div class="cv-num">05</div><div class="cv-body"><h4>경쟁보다 협력으로 함께 성장하는 인재</h4><p>단순한 열등감이나 경쟁보다는 동료와 건강하게 협력하며, 팀의 성과와 자신의 성장을 함께 만들어갑니다.</p></div></div>
+
+    <div class="sv-eq">
+      <div class="sv-eq-card">
+        <p class="sv-formula">Solve + Collaborate <b>= Outperform</b></p>
+        <p>방법을 찾고(Solve) 동료와 협업하는(Collaborate) 사람이 결국 <strong>탁월한 성과를 내는 사람</strong>(Outperform)이 됩니다.</p>
+      </div>
+      <div class="sv-eq-card">
+        <p class="sv-formula">Adapt + Learn <b>= Unlock</b></p>
+        <p>변화를 받아들이고(Adapt) 동료와 다른 의견에서 배우며(Learn) <strong>자신만의 잠재력을 폭발시키는 사람</strong>(Unlock)이 됩니다.</p>
+      </div>
+      <div class="sv-eq-card">
+        <p class="sv-formula">Execute <b>= Transform</b></p>
+        <p>빠르게 실행하고 시장을 장악하는 사람이 되어(Execute) <strong>트렌드를 비즈니스와 커머스로 전환하는 사람</strong>(Transform)이 됩니다.</p>
+      </div>
+    </div>
+
+    <div class="sv-groups">
+      <div class="sv-group">
+        <p class="sv-group-title"><b>SCALE</b> how we work</p>
+        <div class="sv-row"><span class="sv-letter">S</span><div class="sv-body"><h4>Solve <em>Every problem is solvable.</em></h4><p>우리는 안 되는 이유보다 되는 방법을 먼저 찾습니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">C</span><div class="sv-body"><h4>Collaborate <em>Collaborate to conquer.</em></h4><p>우리는 긴밀한 협업을 통해 함께 난관을 돌파하고 확실한 성과를 만듭니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">A</span><div class="sv-body"><h4>Adapt <em>The world moves fast. We adapt faster.</em></h4><p>우리는 빠르게 변하는 시장과 외부 환경에 맞춰 대응하고 적응합니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">L</span><div class="sv-body"><h4>Learn <em>Learn deep, grow fast.</em></h4><p>우리는 끊임없이 흡수하고 체화하며 프로로서의 내실을 단단하게 다집니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">E</span><div class="sv-body"><h4>Execute <em>Execute fast, own the space.</em></h4><p>우리는 빠른 실행력을 바탕으로 시장을 장악하고 확실한 결과를 만듭니다.</p></div></div>
+      </div>
+      <div class="sv-group">
+        <p class="sv-group-title"><b>OUT</b> who we become</p>
+        <div class="sv-row"><span class="sv-letter">O</span><div class="sv-body"><h4>Outperform <em>Outperform expectations, always.</em></h4><p>우리는 탁월한 실행력으로 기대치를 뛰어넘는 압도적인 성과를 증명합니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">U</span><div class="sv-body"><h4>Unlock <em>Unlock your true potential.</em></h4><p>우리는 안주함을 거부하고, 과감한 도전으로 스스로의 잠재력을 폭발시킵니다.</p></div></div>
+        <div class="sv-row"><span class="sv-letter">T</span><div class="sv-body"><h4>Transform <em>Transform trends into commerce.</em></h4><p>우리는 빠른 트렌드를 날카로운 감각으로 해석해 비즈니스 성과로 직결시킵니다.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
